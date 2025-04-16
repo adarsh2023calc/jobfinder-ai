@@ -1,0 +1,10 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://jobfinder-ai.example.com/sitemap.xml
+
+# Disallow crawling of authenticated routes
+Disallow: /dashboard/
+Disallow: /api/ 
