@@ -76,7 +76,9 @@ export default function DashboardPage() {
             </p>
           </CardContent>
           <CardFooter>
-            <Button variant="outline" className="w-full">Connect WhatsApp</Button>
+            <a href="https://wa.me/14155238886" target="_blank" rel="noopener noreferrer">
+            <Button variant="outline"className="w-full">Connect WhatsApp</Button>
+            </a>
           </CardFooter>
         </Card>
       </div>
