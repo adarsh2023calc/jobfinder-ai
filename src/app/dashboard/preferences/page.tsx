@@ -17,7 +17,7 @@ export default function PreferencesPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-muted-foreground">
-              Your job preferences are currently managed through your profile. We're working on a dedicated preferences page to make it even easier to customize your job search.
+              Your job preferences are currently managed through your profile. We are working on a dedicated preferences page to make it even easier to customize your job search.
             </p>
           </CardContent>
           <CardFooter>

@@ -12,12 +12,13 @@ interface MongooseCache {
   promise: Promise<typeof mongoose> | null;
 }
 
-// Extend the global namespace to include our mongoose cache
+// Extend the NodeJS.Global interface to include our mongoose cache
 declare global {
+  // eslint-disable-next-line no-var
   var mongoose: MongooseCache | undefined;
 }
 
-let cached: MongooseCache = global.mongoose || { conn: null, promise: null };
+const cached: MongooseCache = global.mongoose || { conn: null, promise: null };
 
 if (!global.mongoose) {
   global.mongoose = cached;

@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { clerkClient } from "@clerk/nextjs";
+
 import { getAuth } from "@clerk/nextjs/server";
 import connectDB from "@/lib/mongodb";
 import User from "@/models/User";
 import { userProfileSchema } from "@/lib/validations";
+
 
 export async function POST(req: NextRequest) {
   try {
@@ -48,19 +49,27 @@ export async function POST(req: NextRequest) {
       { message: "Profile saved successfully", user },
       { status: 200 }
     );
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error saving profile:", error);
     
     // Handle validation errors
-    if (error.name === "ZodError") {
+    if (
+      typeof error === "object" &&
+      error !== null &&
+      "name" in error &&
+      (error as { name: string }).name === "ZodError"
+    ) {
       return NextResponse.json(
-        { error: "Validation error", details: error.errors },
+        { error: "Validation error", details: (error as import("zod").ZodError).errors },
         { status: 400 }
       );
     }
     
     return NextResponse.json(
-      { error: "Failed to save profile", message: error.message },
+      { 
+        error: "Failed to save profile", 
+        message: typeof error === "object" && error !== null && "message" in error ? (error as { message: string }).message : "Unknown error"
+      },
       { status: 500 }
     );
   }
@@ -91,11 +100,14 @@ export async function GET(req: NextRequest) {
     }
 
     return NextResponse.json(user, { status: 200 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error fetching profile:", error);
-    
+
     return NextResponse.json(
-      { error: "Failed to fetch profile", message: error.message },
+      { 
+        error: "Failed to fetch profile", 
+        message: typeof error === "object" && error !== null && "message" in error ? (error as { message: string }).message : "Unknown error"
+      },
       { status: 500 }
     );
   }

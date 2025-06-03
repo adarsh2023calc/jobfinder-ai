@@ -213,7 +213,7 @@ export default function ProfileForm() {
                           />
                         </FormControl>
                         <FormDescription>
-                          Write a short professional bio that describes your expertise and what you're looking for.
+                          Write a short professional bio that describes your expertise and what you are looking for.
                         </FormDescription>
                         <FormMessage />
                       </FormItem>
@@ -344,7 +344,7 @@ export default function ProfileForm() {
                   <div>
                     <h3 className="text-sm font-medium mb-2">Work Experience</h3>
                     <p className="text-sm text-muted-foreground mb-4">
-                      You'll be able to add work experience after saving your profile.
+                       You will be able to add work experience after saving your profile.
                     </p>
                   </div>
                   
@@ -352,7 +352,7 @@ export default function ProfileForm() {
                   <div>
                     <h3 className="text-sm font-medium mb-2">Education</h3>
                     <p className="text-sm text-muted-foreground mb-4">
-                      You'll be able to add education details after saving your profile.
+                      You will be able to add education details after saving your profile.
                     </p>
                   </div>
                 </CardContent>
@@ -379,7 +379,7 @@ export default function ProfileForm() {
                 <CardHeader>
                   <CardTitle>Job Preferences</CardTitle>
                   <CardDescription>
-                    Tell us about the type of jobs you're looking for.
+                    Tell us about the type of jobs you are looking for.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
